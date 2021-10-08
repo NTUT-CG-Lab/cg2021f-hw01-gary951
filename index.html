@@ -165,8 +165,8 @@
 					side: THREE.DoubleSide,
 				}));
 					var radius = 100.0;
-					mesh.position.x = radius * Math.cos(2 * Math.PI / 360 * (30 * i));
-					mesh.position.y = radius * Math.sin(2 * Math.PI / 360 * (30 * i)) +220;
+					mesh.position.x = radius * Math.sin(2 * Math.PI / 360 * (30 * i));
+					mesh.position.y = radius * Math.cos(2 * Math.PI / 360 * (30 * i)) +220;
 					mesh.position.z = 10;
 					circlearrary.push(mesh);
 					group.add( mesh );
@@ -442,8 +442,8 @@
 					
 					textMesh4 = new THREE.Mesh( newtextGeo ,new THREE.MeshBasicMaterial( { color: 0xffffff, flatShading: true } ) );
 						
-					textMesh4.position.x = radius * Math.cos(2 * Math.PI / 360 * (30 * i))-10;
-					textMesh4.position.y = radius * Math.sin(2 * Math.PI / 360 * (30 * i)) +220-10;
+					textMesh4.position.x = radius * Math.sin(2 * Math.PI / 360 * (30 * i))-10;
+					textMesh4.position.y = radius * Math.cos(2 * Math.PI / 360 * (30 * i)) +220-10;
 					textMesh4.position.z = 0;
 
 					textMesh4.rotation.x = 0 ;
