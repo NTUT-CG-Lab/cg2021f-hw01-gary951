@@ -19,8 +19,8 @@
 
 		<script>
 			// 建構子 ScoreOutputer 接受一個字串，該字串為 csv 的檔案名稱
-			// 以下面範例，檔名就為 "109598105(總分: 6).csv"
-			var so = new ScoreOutputer("109598105");
+			// 以下面範例，檔名就為 "109598005(總分: 6).csv"
+			var so = new ScoreOutputer("109598005");
 			so.installCSS(function(){
 				// 安裝 bootstrap 的 css，如果在 html 上方引用 bootstrap 5.1.1 的話就不用使用 installCSS ，注意一定要 bootstrap css 5.1.1 版
 				// installCSS 接收一個 callback 當作參數，作為成功安裝 bootstrap css 的回呼函式
@@ -52,7 +52,7 @@
 					//5. 自評表 checkbox 文字大小 (預設多少忘了)
 					'15px', 
 					//6. 自評表標題 (預設 "自我評分表")
-					dialogTitle='自我評分表 (助教測試用)'
+					dialogTitle='自我評分表 '
 				);
 				
 				//設定下載按鈕 <-- 一定要呼叫這個函數，不然沒有下載功能
@@ -79,7 +79,7 @@
 			let circlearrary=[]
 			let newtext = ['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥'];
 			let firstLetter = true;
-
+			var plyobject3d=new THREE.Object3D();
 			let text = '高等計算機圖學作業';
 			const height = 20,
 				size = 70,
@@ -275,15 +275,16 @@
 
 					const material = new THREE.MeshBasicMaterial( { color: 0xffffff, flatShading: true } );
 					plymesh = new THREE.Mesh( geometry, material );
-					plymesh.position.x = -200;
-					plymesh.position.y = 200;
-					plymesh.rotation.x=Math.PI*3/2
-					plymesh.scale.multiplyScalar( 0.05 );
+					plyobject3d.add(plymesh);
+					plyobject3d.position.x = -200;
+					plyobject3d.position.y = 200;
+					plyobject3d.rotation.x=Math.PI*3/2
+					plyobject3d.scale.multiplyScalar( 0.05 );
 
-					plymesh.castShadow = true;
-					plymesh.receiveShadow = true;
-
-					scene.add( plymesh );
+					plyobject3d.castShadow = true;
+					plyobject3d.receiveShadow = true;
+					
+					scene.add( plyobject3d );
 
 				} );
 				//-----------------------------------------
@@ -533,7 +534,7 @@
 				requestAnimationFrame( plyanimate );
 
 				const timer=Date.now()*0.005;
-				plymesh.rotation.z=timer*Math.PI/180*10;
+				plyobject3d.rotation.z=timer*Math.PI/180*10;
 
 				renderer.render( scene, camera );
 
@@ -561,11 +562,11 @@
 
 						if(i<10)
 						{
-							window.open("https://ntut-cg-lab.github.io/cg2021f-hw0"+i+"-gary951/");
+							window.open("https://ntut-cg-lab.github.io/cg2021f-hw0"+(i+1)+"-gary951/");
 						}
 						else
 						{
-							window.open("https://ntut-cg-lab.github.io/cg2021f-hw"+i+"-gary951/");
+							window.open("https://ntut-cg-lab.github.io/cg2021f-hw"+(i+1)+"-gary951/");
 						}
 					}
 				}
